@@ -1,164 +1,132 @@
-.align-center {
+.check-hamburguesa {
+    display: none;
+}
+
+.lbl-hamburguesa {
+    display: none;
+}
+
+.estiloNav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #151515;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
     text-align: center;
 }
 
-.title {
+.estiloNav ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.estiloNav li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.estiloNav a {
+    text-decoration: none;
+    color: #151515;
+    padding: 4px 6px;
+}
+
+header {
+    background-color: #000000;
+}
+
+.centrarImg {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
     padding-bottom: 20px;
-    font-weight: 400;
 }
 
-.full {
-    width: 100%;
-}
-
-.padding-lr {
+.titulo {
+    display: block;
+    padding-top: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
     padding-left: 14px;
     padding-right: 14px;
+    font-size: 2em;
 }
 
-.fsize-xl {
-    font-size: 40px;
-    line-height: 46px;
+.seccion1 {
+    width: 100%;
+    display: block;
 }
 
-.epigraph {
-    font-size: 22px;
+.divImg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.divImg img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bajoImg {
+    font-family: "Mada", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 19px;
     font-weight: 600;
-    padding-bottom: 14px;
 }
 
-.article-content {
-    font-size: 20px;
-    line-height: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: 0 auto;
+p {
+    display: block;
+    font-family: "Mada", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #151515;
 }
 
-.article-content h2 {
-    margin-bottom: 20px;
+div h2 {
     margin-top: 35px;
-    line-height: 34px;
-}
-
-.article-content h3 {
     margin-bottom: 20px;
+    letter-spacing: -0.25px;
+    font-family: "Mada", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-.article-content ul li {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 10px;
+.caracteristicas h3,
+.caracteristicas li {
+    font-family: "Mada", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-.form-section {
-    width: 100%;
-    max-width: 600px;
+.contacto {
+    background-color: #c2c2c2;
+    font-family: "Mada", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 600;
+}
+
+footer {
+    background-color: #dad4d4;
+    color: #eeeeee;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-button {
-    padding: 10px;
-    background-color: #3e5266;
-    color: white;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.header {
-    width: 100%;
-    height: 64px;
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 14px;
-    position: sticky;
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 10px 0;
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-.menu li {
-    display: inline-block;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
+    font-family: Arial, sans-serif;
     font-size: 14px;
-    padding: 6px 8px;
-    transition: color 0.2s ease-in-out;
-}
-
-.hidden {
-    display: none;
+    text-align: center;
 }
 
 
-.nav_input {
-    display: none;
-}
+@media screen and (max-width: 480px) {
 
-.nav_label {
-    display: none;
-    cursor: pointer;
-}
-
-.nav_img {
-    width: 30px;
-    height: 30px;
-}
-
-
-@media only screen and (max-width: 480px) {
-    .nav_label {
-        display: block;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-    }
-
-    .menu {
+    nav.estiloNav ul {
         display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        background-color: white;
     }
 
-    .menu ul {
-        flex-direction: column;
+    .lbl-hamburguesa {
+        display: inline-block;
     }
 
-    .menu li {
+    .check-hamburguesa:checked+.lbl-hamburguesa+nav.estiloNav ul {
+        display: block;
+        background-color: #ffffff;
         padding: 10px;
-    }
-
-    /* Muestra el menú cuando está activado el input */
-    .nav_input:checked + .nav_label + .menu {
-        display: flex;
     }
 }
