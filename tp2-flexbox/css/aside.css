@@ -1,0 +1,28 @@
+aside { 
+    flex: 0 0 100%;
+    background-color: rgb(207, 192, 192);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+aside img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+aside a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgb(106, 94, 117);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    aside {
+        flex: 0 0 20%;
+    }
+}

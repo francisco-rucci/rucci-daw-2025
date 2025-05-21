@@ -1,0 +1,41 @@
+.fila { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.seccion-principal {
+    flex: 0 0 100%;
+    background-color: rgb(163, 163, 163);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.seccion-principal h3 {
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.seccion-principal img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.seccion-principal .ver-noticia {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgb(106, 94, 117);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    .fila {
+        flex-direction: row;
+    }
+
+    .seccion-principal {
+        flex: 0 0 60%;
+    }
+}

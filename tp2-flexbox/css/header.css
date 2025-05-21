@@ -1,0 +1,25 @@
+header {
+    padding: 60px;
+    text-align: center;
+    background-image: url("../img/bandera.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header div {
+    background-color: #777676;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 0 0 20px;
+}
+
+header p{
+    margin: 0 0 10px;
+}
