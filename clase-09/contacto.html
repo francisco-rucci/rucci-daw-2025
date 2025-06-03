@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,62 @@
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/estilos.css">
 </head>
+
 <body>
     <section class="form-seccion">
         <h1>Formulario de contacto</h1>
-        <form>
+        <form id="formulario">
             <div class="form-grupo">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-            </div>
-            <div class="form-grupo">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido">
-            </div>
-            <div class="form-grupo">
-                <label for="genero">Género:</label>
-                <select id="genero" name="genero" >
-                    <option value="">Seleccione</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                </select>
+                <label for="nombreCompleto">Nombre completo:</label>
+                <input type="text" id="nombreCompleto" name="nombreCompleto">
+                <span class="error" id="errorNombreCompleto"></span>
             </div>
             <div class="form-grupo">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
+                <span class="error" id="errorEmail"></span>
             </div>
             <div class="form-grupo">
-                <label for="asunto">Asunto:</label>
-                <input type="text" id="asunto" name="asunto">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña">
+                <span class="error" id="errorContraseña"></span>
             </div>
             <div class="form-grupo">
-                <label for="mensaje">Mensaje:</label>
-                <textarea name="mensaje" id="mensaje"></textarea>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad">
+                <span class="error" id="errorEdad"></span>
             </div>
             <div class="form-grupo">
-                <button type="button" class="form-boton">Enviar</button>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono">
+                <span class="error" id="errorTelefono"></span>
+            </div>
+            <div class="form-grupo">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
+                <span class="error" id="errorDireccion"></span>
+            </div>
+            <div class="form-grupo">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" name="ciudad">
+                <span class="error" id="errorCiudad"></span>
+            </div>
+            <div class="form-grupo">
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" name="codigoPostal">
+                <span class="error" id="errorCodigoPostal"></span>
+            </div>
+            <div class="form-grupo">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+                <span class="error" id="errorDni"></span>
+            </div>
+            <div class="form-grupo">
+                <button type="button" class="form-boton" id="btnEnviar">Enviar</button>
             </div>
         </form>
     </section>
+    <script src="js/inicio.js"></script>
 </body>
+
 </html>

@@ -1,54 +1,146 @@
-var nav = document.getElementsByClassName('estilo-nav')[0];
-var enlaces = nav.getElementsByTagName('a');
+function validarNombre(nombre) {
+  return nombre.length > 6 && nombre.indexOf(" ") !== -1;
+}
 
-for (var i = 0; i < enlaces.length; i++) {
-    enlaces[i].addEventListener('mouseover', function(event){
-        event.target.style.color = 'red';
-    });
+function validarEmail(email) {
+  return email.indexOf("@") !== -1 && email.indexOf(".") !== -1;
+}
 
-    enlaces[i].addEventListener('mouseout', function(event) {
-    event.target.style.color = '';
+function validarContraseña(pass) {
+  return pass.length >= 8;
+}
+
+function validarEdad(edad) {
+  return !isNaN(edad) && Number(edad) > 18;
+}
+
+function validarTelefono(tel) {
+  return /^\d{7,}$/.test(tel);
+}
+
+function validarDireccion(dir) {
+  return dir.length >= 5;
+}
+
+function validarCiudad(ciudad) {
+  return ciudad.length >= 3;
+}
+
+function validarCodigoPostal(cp) {
+  return /^\d{4,8}$/.test(cp);
+}
+
+function validarDni(dni) {
+  return /^\d{7,9}$/.test(dni);
+}
+
+
+function agregarEventosValidacion(idCampo, idError, validarFunc, mensajeError) {
+  var campo = document.getElementById(idCampo);
+  var error = document.getElementById(idError);
+
+  campo.addEventListener("blur", function () {
+    var valor = campo.value.trim();
+    if (!validarFunc(valor)) {
+      error.textContent = mensajeError;
+    } else {
+      error.textContent = "";
+    }
+  });
+
+  campo.addEventListener("focus", function () {
+    error.textContent = "";
   });
 }
 
 
-
-var asides = document.getElementsByTagName('aside');
-
-for (var i = 0; i < asides.length; i++) {
-  var enlaces = asides[i].getElementsByTagName('a');
-
-  for (var j = 0; j < enlaces.length; j++) {
-    enlaces[j].addEventListener('mouseover', function(event) {
-      var articulo = event.target.closest('article');
-      if (articulo) {
-        articulo.style.backgroundColor = '#f0f0f0';
-      }
-    });
-
-    enlaces[j].addEventListener('mouseout', function(event) {
-      var articulo = event.target.closest('article');
-      if (articulo) {
-        articulo.style.backgroundColor = '';
-      }
-    });
-  }
-}
+window.onload = function () {
+  agregarEventosValidacion("nombreCompleto", "errorNombreCompleto", validarNombre, "Debe tener más de 6 caracteres y un espacio.");
+  agregarEventosValidacion("email", "errorEmail", validarEmail, "Debe ser un email válido.");
+  agregarEventosValidacion("contraseña", "errorContraseña", validarContraseña, "Debe tener al menos 8 caracteres.");
+  agregarEventosValidacion("edad", "errorEdad", validarEdad, "Debe ser mayor a 18.");
+  agregarEventosValidacion("telefono", "errorTelefono", validarTelefono, "Debe contener solo números y tener al menos 7 dígitos.");
+  agregarEventosValidacion("direccion", "errorDireccion", validarDireccion, "Debe tener al menos 5 caracteres.");
+  agregarEventosValidacion("ciudad", "errorCiudad", validarCiudad, "Debe tener al menos 3 letras.");
+  agregarEventosValidacion("codigoPostal", "errorCodigoPostal", validarCodigoPostal, "Debe tener entre 4 y 8 números.");
+  agregarEventosValidacion("dni", "errorDni", validarDni, "Debe tener entre 7 y 9 números.");
 
 
+  var boton = document.getElementById("btnEnviar");
+  boton.addEventListener("click", function () {
+    var nombre = document.getElementById("nombreCompleto").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var contraseña = document.getElementById("contraseña").value.trim();
+    var edad = document.getElementById("edad").value.trim();
+    var telefono = document.getElementById("telefono").value.trim();
+    var direccion = document.getElementById("direccion").value.trim();
+    var ciudad = document.getElementById("ciudad").value.trim();
+    var codigoPostal = document.getElementById("codigoPostal").value.trim();
+    var dni = document.getElementById("dni").value.trim();
 
-var seccion = document.getElementsByClassName('contacto');
-var divContacto = seccion[0].getElementsByTagName('div')[0];
-var enlace = divContacto.getElementsByTagName('a')[0];
+    var valido = true;
+    var errores = "";
 
-divContacto.addEventListener('mouseover', function() {
-  divContacto.style.backgroundColor = '#a0a0a0';
-});
+    if (!validarNombre(nombre)) {
+      document.getElementById("errorNombreCompleto").textContent = "Debe tener más de 6 caracteres y un espacio.";
+      errores += "- Nombre inválido\n";
+      valido = false;
+    }
+    if (!validarEmail(email)) {
+      document.getElementById("errorEmail").textContent = "Debe ser un email válido.";
+      errores += "- Email inválido\n";
+      valido = false;
+    }
+    if (!validarContraseña(contraseña)) {
+      document.getElementById("errorContraseña").textContent = "Debe tener al menos 8 caracteres.";
+      errores += "- Contraseña inválida\n";
+      valido = false;
+    }
+    if (!validarEdad(edad)) {
+      document.getElementById("errorEdad").textContent = "Debe ser mayor a 18.";
+      errores += "- Edad inválida\n";
+      valido = false;
+    }
+    if (!validarTelefono(telefono)) {
+      document.getElementById("errorTelefono").textContent = "Debe contener solo números y tener al menos 7 dígitos.";
+      errores += "- Teléfono inválido\n";
+      valido = false;
+    }
+    if (!validarDireccion(direccion)) {
+      document.getElementById("errorDireccion").textContent = "Debe tener al menos 5 caracteres.";
+      errores += "- Dirección inválida\n";
+      valido = false;
+    }
+    if (!validarCiudad(ciudad)) {
+      document.getElementById("errorCiudad").textContent = "Debe tener al menos 3 letras.";
+      errores += "- Ciudad inválida\n";
+      valido = false;
+    }
+    if (!validarCodigoPostal(codigoPostal)) {
+      document.getElementById("errorCodigoPostal").textContent = "Debe tener entre 4 y 8 números.";
+      errores += "- Código Postal inválido\n";
+      valido = false;
+    }
+    if (!validarDni(dni)) {
+      document.getElementById("errorDni").textContent = "Debe tener entre 7 y 9 números.";
+      errores += "- DNI inválido\n";
+      valido = false;
+    }
 
-divContacto.addEventListener('mouseout', function() {
-  divContacto.style.backgroundColor = '#c1c7c7';
-});
-
-divContacto.addEventListener('click', function() {
-  window.location.href = enlace.href;
-});
+    if (valido) {
+      alert(
+        "Formulario enviado correctamente:\n" +
+        "Nombre: " + nombre + "\n" +
+        "Email: " + email + "\n" +
+        "Edad: " + edad + "\n" +
+        "Teléfono: " + telefono + "\n" +
+        "Dirección: " + direccion + "\n" +
+        "Ciudad: " + ciudad + "\n" +
+        "Código Postal: " + codigoPostal + "\n" +
+        "DNI: " + dni
+      );
+    } else {
+      alert("Errores en el formulario:\n" + errores);
+    }
+  });
+};
