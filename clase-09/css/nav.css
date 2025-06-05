@@ -1,0 +1,42 @@
+.estilo-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: #151515;
+}
+
+.estilo-nav a {
+    color: #151515;
+    padding: 6px 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.check-hamburguesa {
+    display: none;
+}
+
+.lbl-hamburguesa {
+    display: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #000000;
+}
+
+.check-hamburguesa:checked+.lbl-hamburguesa+.estilo-nav {
+    display: flex;
+}
+
+@media screen and (max-width: 480px) {
+    .estilo-nav {
+        display: none;
+        flex-direction: column;
+    }
+
+    .lbl-hamburguesa {
+        display: block;
+    }
+}
