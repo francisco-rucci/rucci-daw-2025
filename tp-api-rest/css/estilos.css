@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #e1e2eb;
+  color: #000000;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  background-color: #423ebe;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+#contenedor-personajes {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.tarjeta-personaje {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tarjeta-personaje img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+#seccion-filtros {
+  border: 2px solid #4CAF50;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #e1e2eb;
+  margin-bottom: 20px;
+}
